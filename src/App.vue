@@ -1,20 +1,14 @@
 <template>
-  <scene>
-    <heart />
-  </scene>
+  <div ref="rendererContainer" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Scene from './components/Scene.vue'
-import Heart from './components/Heart.vue'
+import { init } from './three'
 
 export default defineComponent({
-  name: 'App',
-
-  components: {
-    Scene,
-    Heart
+  mounted () {
+    init(this.$refs.rendererContainer as HTMLElement)
   }
 })
 </script>

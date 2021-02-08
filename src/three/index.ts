@@ -2,17 +2,17 @@ import { getCamera } from './camera'
 import { getScene } from './scene'
 import { getRenderer } from './renderer'
 import { getLight } from './light'
-import { getCube, getFloor } from './mesh'
+import { getHeart, getFloor } from './mesh'
 
 const [w, h] = [window.innerWidth, window.innerHeight]
 const camera = getCamera(w, h)
 const scene = getScene()
 const renderer = getRenderer(w, h)
 const light = getLight()
-const cube = getCube()
+const cube = getHeart()
 
 function animation (time: number) {
-  cube.rotation.y = time / 2000
+  // cube.rotation.z = time / 2000
   renderer.render(scene, camera)
 }
 

@@ -1,7 +1,7 @@
-import * as THREE from 'three'
+import { WebGLRenderer } from 'three'
 
-export function getRenderer (w: number, h: number): THREE.WebGLRenderer {
-  const renderer = new THREE.WebGLRenderer({ antialias: true })
+export function getRenderer (w: number, h: number): WebGLRenderer {
+  const renderer = new WebGLRenderer({ antialias: true })
   renderer.setSize(w, h)
   return renderer
 }

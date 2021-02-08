@@ -1,27 +1,25 @@
 import { getCamera } from './camera'
 import { getScene } from './scene'
 import { getRenderer } from './renderer'
-
-import { getMesh } from './mesh'
+import { getLight } from './light'
+import { getCube, getFloor } from './mesh'
 
 const [w, h] = [window.innerWidth, window.innerHeight]
-
 const camera = getCamera(w, h)
 const scene = getScene()
 const renderer = getRenderer(w, h)
-
-const mesh = getMesh()
+const light = getLight()
+const cube = getCube()
 
 function animation (time: number) {
-  mesh.rotation.x = time / 2000
-  mesh.rotation.y = time / 1000
-
+  cube.rotation.y = time / 2000
   renderer.render(scene, camera)
 }
 
 export function init (rendererContainer: HTMLElement) {
-  scene.add(mesh)
-
+  scene.add(light)
+  scene.add(getFloor())
+  scene.add(cube)
   renderer.setAnimationLoop(animation)
   rendererContainer.appendChild(renderer.domElement)
 }

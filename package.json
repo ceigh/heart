@@ -12,6 +12,8 @@
     "vue": "^3.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -42,8 +44,7 @@
     ],
     "parserOptions": {
       "ecmaVersion": 2020
-    },
-    "rules": {}
+    }
   },
   "browserslist": [
     "> 1%",
@@ -51,12 +52,18 @@
     "not dead"
   ],
   "gitHooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint -e"
   },
   "lint-staged": {
     "*.{js,jsx,vue,ts,tsx}": [
       "vue-cli-service lint",
       "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
     ]
   }
 }

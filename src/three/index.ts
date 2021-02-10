@@ -9,17 +9,18 @@ const camera = getCamera(w, h)
 const scene = getScene()
 const renderer = getRenderer(w, h)
 const light = getLight()
-const cube = getHeart()
+const heart = getHeart()
 
 function animation (time: number) {
-  // cube.rotation.z = time / 2000
+  const heartScale = 0.015 + Math.abs(Math.sin(time / 1000)) / 300
+  heart.scale.set(heartScale, heartScale, heartScale)
   renderer.render(scene, camera)
 }
 
 export function init (rendererContainer: HTMLElement) {
   scene.add(light)
   scene.add(getFloor())
-  scene.add(cube)
+  scene.add(heart)
   renderer.setAnimationLoop(animation)
   rendererContainer.appendChild(renderer.domElement)
 }

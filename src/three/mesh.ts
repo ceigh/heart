@@ -23,8 +23,8 @@ export function getHeart (): THREE.Mesh {
   const mesh = new THREE.Mesh(geometry, material)
   mesh.scale.set(0.02, 0.02, 0.02)
   mesh.rotation.x = -90 * degree
-  mesh.rotation.z = -240 * degree
-  mesh.position.set(1, 0, 0)
+  mesh.rotation.z = -235 * degree
+  mesh.position.set(1, 0, 0.3)
   return mesh
 }
 

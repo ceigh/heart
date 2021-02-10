@@ -23,18 +23,18 @@ export function getHeart (): THREE.Mesh {
   const mesh = new THREE.Mesh(geometry, material)
   mesh.scale.set(0.02, 0.02, 0.02)
   mesh.rotation.x = -90 * degree
-  mesh.rotation.z = -235 * degree
-  mesh.position.set(1, 0, 0.3)
+  mesh.rotation.z = 135 * degree
+  mesh.position.set(0.8, 0, 0)
   return mesh
 }
 
 export function getFloor (): THREE.Mesh {
   const texture = new THREE.TextureLoader()
     .load('/floor.jpg')
-  texture.repeat.set(22, 22)
+  texture.repeat.set(10, 10)
   texture.wrapT = THREE.RepeatWrapping
   texture.wrapS = THREE.RepeatWrapping
-  texture.magFilter = THREE.NearestFilter
+  texture.magFilter = THREE.LinearFilter
 
   const geometry = new THREE.PlaneBufferGeometry(100, 80)
   const material = new THREE.MeshLambertMaterial({ map: texture })
@@ -42,6 +42,6 @@ export function getFloor (): THREE.Mesh {
   const mesh = new THREE.Mesh(geometry, material)
   mesh.position.set(0, -1, 0)
   mesh.rotation.x = -90 * degree
-  mesh.rotation.z = -30 * degree
+  // mesh.rotation.z = -30 * degree
   return mesh
 }

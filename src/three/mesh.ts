@@ -19,7 +19,7 @@ export function getHeart (): THREE.Mesh {
     bevelThickness: 20
   }
   const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings)
-  const material = new THREE.MeshStandardMaterial({ color: 0x44aa88 })
+  const material = new THREE.MeshStandardMaterial({ color: 0x00ff00 })
   const mesh = new THREE.Mesh(geometry, material)
   mesh.scale.set(0.02, 0.02, 0.02)
   mesh.rotation.x = -90 * degree

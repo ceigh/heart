@@ -17,9 +17,11 @@ export function getHeart (): THREE.Group {
     bevelThickness: 16
   }
   const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings)
-  const material = new THREE.MeshPhongMaterial({
-    color: 0x999999,
-    shininess: 128
+  const material = new THREE.MeshStandardMaterial({
+    color: 0x222222,
+    roughness: 0,
+    transparent: true,
+    opacity: 0.9
   })
   const mesh = new THREE.Mesh(geometry, material)
   mesh.position.y = -3

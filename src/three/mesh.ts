@@ -11,17 +11,18 @@ export function getHeart (): THREE.Group {
   shape.bezierCurveTo(80, 35, 80, 0, 50, 0)
   shape.bezierCurveTo(35, 0, 25, 25, 25, 25)
   const extrudeSettings = {
-    curveSegments: 64,
+    curveSegments: 128,
     amount: 16,
-    bevelSegments: 16,
+    bevelSegments: 128,
     bevelThickness: 16
   }
   const geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings)
-  const material = new THREE.MeshStandardMaterial({
-    color: 0x222222,
+  const material = new THREE.MeshPhysicalMaterial({
+    color: 0x777777,
     roughness: 0,
-    transparent: true,
-    opacity: 0.9
+    clearcoat: 1,
+    transmission: 0.3,
+    transparent: true
   })
   const mesh = new THREE.Mesh(geometry, material)
   mesh.position.y = -3
@@ -44,9 +45,9 @@ export function getFloor (): THREE.Mesh {
   texture.wrapS = THREE.RepeatWrapping
   texture.magFilter = THREE.LinearFilter
   const geometry = new THREE.PlaneBufferGeometry(100, 80)
-  const material = new THREE.MeshPhongMaterial({
-    shininess: 32,
-    map: texture
+  const material = new THREE.MeshStandardMaterial({
+    map: texture,
+    roughness: 0.3
   })
   const mesh = new THREE.Mesh(geometry, material)
   mesh.position.set(0, 0, 0)

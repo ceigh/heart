@@ -16,7 +16,7 @@ const controls = new OrbitControls(camera, renderer.domElement)
 const lights = getLights()
 const heart = getHeart()
 
-controls.minDistance = 5
+controls.minDistance = 8
 controls.maxDistance = 20
 controls.maxPolarAngle = 89 * degree
 

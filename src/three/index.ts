@@ -30,12 +30,10 @@ if (isDev) {
 
 function animation (time: number) {
   if (isDev) stats.begin()
-  const heartScale = 0.015 + Math.abs(Math.sin(time / 1000)) / 300
-  const heartAngle = time / 2000
+  const sec = time / 1000
+  const heartScale = 1 + (1 + Math.sin(sec)) / 10
   heart.scale.set(heartScale, heartScale, heartScale)
-  heart.rotation.x = heartAngle
-  heart.rotation.y = heartAngle
-  heart.rotation.z = heartAngle
+  heart.rotation.y = sec
   renderer.render(scene, camera)
   if (isDev) stats.end()
 }

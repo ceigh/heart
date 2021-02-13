@@ -42,7 +42,8 @@ export function getHeart (): THREE.Group {
 
 export function getFloor (): THREE.Mesh {
   const texture = new THREE.TextureLoader()
-    .load('/floor.jpg')
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    .load(require('../assets/textures/floor.jpg'))
   texture.repeat.set(5, 5)
   texture.wrapT = THREE.RepeatWrapping
   texture.wrapS = THREE.RepeatWrapping
